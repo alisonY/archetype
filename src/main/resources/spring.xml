@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+	"
+>
+	<context:property-placeholder location="classpath:config.properties" />
+	<context:component-scan base-package="rml.service" />
+
+    <!-- 针对freemarker的视图配置 -->  
+    <bean id="viewResolver"  
+        class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="viewClass" value="rml.framework.RichFreeMarkerView" />
+        <property name="cache" value="true" />
+        <property name="prefix" value="" />
+        <property name="suffix" value=".ftl" />
+        <property name="contentType" value="text/html;charset=UTF-8"></property>
+        <property name="requestContextAttribute" value="request" />
+        <property name="exposeSpringMacroHelpers" value="true" />
+        <property name="exposeRequestAttributes" value="true" />
+        <property name="exposeSessionAttributes" value="true" />
+    </bean>
+    
+    <!-- freemarkerz视图模板配置  -->
+    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">  
+            <property name="templateLoaderPath" value="/WEB-INF/template/" />
+            <property name="freemarkerSettings">  
+                <props>
+                	<!-- 参数含义参考  http://blog.drizzt.cn/2016/03/20/freemarker-detail.html -->
+                    <prop key="template_update_delay">0</prop>
+                    <prop key="default_encoding">UTF-8</prop>
+                    <prop key="locale">zh_CN</prop>
+                    <!-- 控制模板本地化查找是否可用，比如locale设置为zh_CN加载模板foo.ftl时，freemarker自动查找foo_zh_CN.ftl,foo_zh.ftl,foo.ftl并返回找到的第一个  默认值为true-->
+                    <prop key="localized_lookup">false</prop>
+                    <prop key="classic_compatible">true</prop>
+                    <prop key="template_exception_handler">ignore</prop>
+                    <prop key="number_format">0.##########</prop>
+                    
+                    <!-- 在所有模板中自动引入指定模板 
+                    <prop key="auto_import">/spring.ftl as s</prop>-->
+                    <!-- <prop key="number_format">0.##########</prop> -->
+                    <!-- <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop> -->
+                </props>  
+            </property>  
+    </bean>      
+
+</beans>
