@@ -5,14 +5,20 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import rml.model.MUser;
 import rml.service.MUserService;
+import rml.utils.JacksonMapper;
+import rml.utils.JacksonUtils;
 
 @Controller
 @RequestMapping("/muser")
@@ -20,6 +26,20 @@ public class MUserController {
 
 	@Autowired
 	private MUserService muserService;
+	
+	
+    private static final Logger LOGGER     = LoggerFactory.getLogger(MUserController.class);
+	
+	
+    @RequestMapping(value="/getJson",method={RequestMethod.GET})
+    @ResponseBody
+    public String getFirstPage(HttpServletRequest request) {  
+    	List <MUser> list = muserService.getAll();
+    	String json = JacksonUtils.getInstance().obj2Json(list);
+    	String json2 = JacksonMapper.listToJson(list);
+    	LOGGER.debug(json2);
+        return json+"/"+json2;  
+    }
 
 	@RequestMapping(value="/listUser")
 	public ModelAndView listUser(HttpServletRequest request,ModelMap modelMap) {

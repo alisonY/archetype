@@ -12,6 +12,7 @@
    	<spring.version>4.2.5.RELEASE</spring.version>
 	<mybatis.version>3.2.8</mybatis.version>
 	<mybatisspring.version>1.2.2</mybatisspring.version>
+	<org.slf4j-version>1.7.25</org.slf4j-version>  
   </properties>
   
   <dependencies>
@@ -42,6 +43,7 @@
 		<version>${spring.version}</version>
 	</dependency>
 	<!-- json -->
+	<!-- 
 	<dependency>
 	    <groupId>com.fasterxml.jackson.core</groupId>
 	    <artifactId>jackson-databind</artifactId>
@@ -57,7 +59,13 @@
 	    <artifactId>jackson-annotations</artifactId>
 	    <version>2.7.4</version>
 	</dependency>
+	 -->
 	<!-- org.springframework.http.converter.json.MappingJackson2HttpMessageConverter -->
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-lang3</artifactId>
+	    <version>3.0</version>
+	</dependency>
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-web</artifactId>
@@ -144,6 +152,29 @@
 		<artifactId>jackson-mapper-asl</artifactId>
 		<version>1.9.13</version>
 	</dependency>
+	
+	<!-- SL4J START-->
+	 <dependency>  
+	    <groupId>org.slf4j</groupId>  
+	    <artifactId>slf4j-api</artifactId>  
+	    <version>${org.slf4j-version}</version>  
+	</dependency>  
+	<dependency>  
+	    <groupId>org.slf4j</groupId>  
+	    <artifactId>jcl-over-slf4j</artifactId>  
+	    <version>${org.slf4j-version}</version>  
+	</dependency>  
+	<dependency>  
+	    <groupId>org.slf4j</groupId>  
+	    <artifactId>log4j-over-slf4j</artifactId>  
+	    <version>${org.slf4j-version}</version>  
+	</dependency>  
+	<dependency>  
+	    <groupId>org.slf4j</groupId>  
+	    <artifactId>jul-to-slf4j</artifactId>  
+	    <version>${org.slf4j-version}</version>  
+	</dependency>  
+	<!-- SL4J START END-->
 	
   </dependencies>
   
