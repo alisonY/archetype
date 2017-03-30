@@ -12,23 +12,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import rml.model.MUser;
-import rml.service.MUserServiceI;
+import rml.service.MUserService;
 
 @Controller
 @RequestMapping("/muser")
 public class MUserController {
 
-	private MUserServiceI muserService;
-
-	public MUserServiceI getMuserService() {
-		return muserService;
-	}
-
 	@Autowired
-	public void setMuserService(MUserServiceI muserService) {
-		this.muserService = muserService;
-	}
-	
+	private MUserService muserService;
+
 	@RequestMapping(value="/listUser")
 	public ModelAndView listUser(HttpServletRequest request,ModelMap modelMap) {
 	    ModelAndView mav = new ModelAndView();

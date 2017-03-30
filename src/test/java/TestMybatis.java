@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import rml.model.MUser;
-import rml.service.MUserServiceI;
+import rml.service.MUserService;
 
 import com.alibaba.fastjson.JSON;
 
@@ -22,7 +22,7 @@ public class TestMybatis  extends AbstractJUnit4SpringContextTests {
 	private static final Logger logger = Logger.getLogger(TestMybatis.class);
 
 	@Autowired
-	private MUserServiceI muserService;
+	private MUserService muserService;
 
 	@Test
 	public void test0() {

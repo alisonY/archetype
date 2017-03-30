@@ -1,4 +1,4 @@
-package rml.service;
+package rml.service.impl;
 
 import java.util.List;
 
@@ -7,21 +7,14 @@ import org.springframework.stereotype.Service;
 
 import rml.dao.MUserMapper;
 import rml.model.MUser;
+import rml.service.MUserService;
 
 @Service("muserService")
-public class MUserServiceImpl implements MUserServiceI{
-
-	private MUserMapper muserMapper;
-		
-	public MUserMapper getMuserMapper() {
-		return muserMapper;
-	}
+public class MUserServiceImpl implements MUserService{
 
 	@Autowired
-	public void setMuserMapper(MUserMapper muserMapper) {
-		this.muserMapper = muserMapper;
-	}
-	
+	private MUserMapper muserMapper;
+		
 	@Override
 	public List<MUser> getAll() {
 		
