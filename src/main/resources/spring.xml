@@ -10,7 +10,7 @@
 	"
 >
 	<context:property-placeholder location="classpath:config.properties" />
-	<context:component-scan base-package="rml.service" />
+	
 
     <!-- 针对freemarker的视图配置 -->  
     <bean id="viewResolver"  
@@ -28,7 +28,7 @@
     
     <!-- freemarkerz视图模板配置  -->
     <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">  
-            <property name="templateLoaderPath" value="/WEB-INF/template/" />
+            <property name="templateLoaderPath" value="/WEB-INF/template/" /><!-- 放在web-info下 内部安全访问 -->
             <property name="freemarkerSettings">  
                 <props>
                 	<!-- 参数含义参考  http://blog.drizzt.cn/2016/03/20/freemarker-detail.html -->
