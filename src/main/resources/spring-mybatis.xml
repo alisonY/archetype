@@ -72,7 +72,7 @@
 		</tx:attributes>
 	</tx:advice>
 	<aop:config>
-		<aop:pointcut id="transactionPointcut" expression="execution(* rml.service..*Impl.*(..))" />
+		<aop:pointcut id="transactionPointcut" expression="execution(* rml.service.impl..*Impl.*(..))" />
 		<aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice" />
 	</aop:config>
 
@@ -84,7 +84,7 @@
 	    scope="prototype">
 	    <property name="patterns">
 	        <list>
-	            <value>rml.service..*Impl.*(..)</value>
+	            <value>rml.service.impl..*Impl.*(..)</value>
 	        </list>
 	    </property>
 	</bean>

@@ -11,6 +11,8 @@
 	</BR>
 	BasePath is ${BasePath}
 	</BR>
+	<img src = ${rootPath}${BasePath}/images/guidance.jpg />
+	</BR>
 	<a href="${rootPath}${BasePath}/muser/listUser.do">User List</a>
 	</body>  
 </html> 
