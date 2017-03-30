@@ -1,2 +1,9 @@
 /target/
+/.settings/
 /.classpath
+/mybatis.log
+*.classpath
+*.project
+*.settings
+.classpath
+/.settings
