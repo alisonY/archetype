@@ -147,6 +147,27 @@
 	
   </dependencies>
   
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<config.properties>classpath:/config.properties</config.properties>
+				<!-- <log4j.file.path>D:\APIload\logs</log4j.file.path> -->
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<application.properties>file:///etc/appconf/config.properties</application.properties>
+				<!-- <log4j.file.path>/data/applogs/jbosslogs</log4j.file.path> -->
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+	</profiles>
+  
   <build>
     <plugins>
       <plugin>
@@ -166,7 +187,6 @@
         </configuration>
       </plugin>
     </plugins>
-    
     <finalName>pre_mybatis</finalName>
   </build>
 </project>
