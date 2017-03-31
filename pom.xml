@@ -12,7 +12,10 @@
    	<spring.version>4.2.5.RELEASE</spring.version>
 	<mybatis.version>3.2.8</mybatis.version>
 	<mybatisspring.version>1.2.2</mybatisspring.version>
-	<org.slf4j-version>1.7.25</org.slf4j-version>  
+	<org.slf4j-version>1.7.25</org.slf4j-version>
+	<ch.qos.logback>1.1.7</ch.qos.logback>
+	
+	
   </properties>
   
   <dependencies>
@@ -96,6 +99,43 @@
 		<artifactId>mybatis-spring</artifactId>
 		<version>${mybatisspring.version}</version>
 	</dependency>
+
+	<!-- SL4J START-->
+	 <dependency>  
+	    <groupId>org.slf4j</groupId>  
+	    <artifactId>slf4j-api</artifactId>  
+	    <version>${org.slf4j-version}</version>  
+	</dependency>  
+	<dependency>  
+	    <groupId>org.slf4j</groupId>  
+	    <artifactId>jcl-over-slf4j</artifactId>  
+	    <version>${org.slf4j-version}</version>  
+	</dependency>  
+	<dependency>  
+	    <groupId>org.slf4j</groupId>  
+	    <artifactId>log4j-over-slf4j</artifactId>  
+	    <version>${org.slf4j-version}</version>  
+	</dependency>  
+	<dependency>  
+	    <groupId>org.slf4j</groupId>  
+	    <artifactId>jul-to-slf4j</artifactId>  
+	    <version>${org.slf4j-version}</version>  
+	</dependency>  
+	<!-- logback -->
+	<dependency>
+	  <groupId>ch.qos.logback</groupId>
+	  <artifactId>logback-core</artifactId>
+	  <version>${ch.qos.logback}</version>
+	</dependency>
+	<dependency>
+	  <groupId>ch.qos.logback</groupId>
+	  <artifactId>logback-classic</artifactId>
+	  <version>${ch.qos.logback}</version>
+	</dependency>
+	<!-- SL4J START END-->
+	
+	
+
 	<dependency>
 	  <groupId>org.freemarker</groupId>
 	  <artifactId>freemarker</artifactId>
@@ -152,29 +192,6 @@
 		<artifactId>jackson-mapper-asl</artifactId>
 		<version>1.9.13</version>
 	</dependency>
-	
-	<!-- SL4J START-->
-	 <dependency>  
-	    <groupId>org.slf4j</groupId>  
-	    <artifactId>slf4j-api</artifactId>  
-	    <version>${org.slf4j-version}</version>  
-	</dependency>  
-	<dependency>  
-	    <groupId>org.slf4j</groupId>  
-	    <artifactId>jcl-over-slf4j</artifactId>  
-	    <version>${org.slf4j-version}</version>  
-	</dependency>  
-	<dependency>  
-	    <groupId>org.slf4j</groupId>  
-	    <artifactId>log4j-over-slf4j</artifactId>  
-	    <version>${org.slf4j-version}</version>  
-	</dependency>  
-	<dependency>  
-	    <groupId>org.slf4j</groupId>  
-	    <artifactId>jul-to-slf4j</artifactId>  
-	    <version>${org.slf4j-version}</version>  
-	</dependency>  
-	<!-- SL4J START END-->
 	
   </dependencies>
   

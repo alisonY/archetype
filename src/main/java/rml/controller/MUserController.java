@@ -37,7 +37,11 @@ public class MUserController {
     	List <MUser> list = muserService.getAll();
     	String json = JacksonUtils.getInstance().obj2Json(list);
     	String json2 = JacksonMapper.listToJson(list);
-    	LOGGER.debug(json2);
+    	LOGGER.info("info");
+    	LOGGER.debug("debug");
+    	LOGGER.warn("warn");
+    	LOGGER.trace("trace");
+    	LOGGER.error("error");
         return json+"/"+json2;  
     }
 
