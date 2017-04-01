@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-	<!-- oracle lib location -->
 	<classPathEntry location="mysql-connector-java-5.1.22-bin.jar" />
 	<context id="MySQLTables" targetRuntime="MyBatis3">
 		<commentGenerator>
 			<property name="suppressAllComments" value="true" />
 		</commentGenerator>
-		<!-- oracle URL、username、password -->
 		<jdbcConnection 
 			driverClass="com.mysql.jdbc.Driver" 
 			connectionURL="jdbc:mysql://192.168.211.248:3306/notifiction_db?useUnicode=true&amp;characterEncoding=utf-8" 
