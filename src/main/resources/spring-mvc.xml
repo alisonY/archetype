@@ -20,8 +20,20 @@
 	<context:component-scan base-package="rml.controller" />
 	<context:component-scan base-package="rml.service" />
 	
-	
-	<mvc:annotation-driven/>
+	<!-- 处理请求返回json字符串的中文乱码问题 -->
+    <mvc:annotation-driven>
+         <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>text/html;charset=UTF-8</value>
+                        <value>*/*</value>
+                    </list>
+                </property>
+                <property name="writeAcceptCharset" value="false" />
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 	
 	<!-- 此处使用spring引用的json转换，MappingJackson2HttpMessageConverter中使用了com.fasterxml.jackson 修改时可以去掉POM中的无用引用 -->
 	<!-- 上面使用了 <mvc:annotation-driven/>  spring 自动注册 RequestMappingHandlerMapping和RequestMappingHandlerAdapter。
